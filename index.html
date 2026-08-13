@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏の詩</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 50%, #7db9e8 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 泡の背景エフェクト */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rise 10s infinite ease-in;
+        }
+
+        /* 異なるサイズと速度の泡 */
+        .bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-duration: 8s; animation-delay: 0s; }
+        .bubble:nth-child(2) { left: 20%; width: 20px; height: 20px; animation-duration: 5s; animation-delay: 1s; }
+        .bubble:nth-child(3) { left: 35%; width: 50px; height: 50px; animation-duration: 10s; animation-delay: 2s; }
+        .bubble:nth-child(4) { left: 50%; width: 15px; height: 15px; animation-duration: 6s; animation-delay: 0s; }
+        .bubble:nth-child(5) { left: 65%; width: 35px; height: 35px; animation-duration: 7s; animation-delay: 3s; }
+        .bubble:nth-child(6) { left: 75%; width: 25px; height: 25px; animation-duration: 9s; animation-delay: 1s; }
+        .bubble:nth-child(7) { left: 88%; width: 45px; height: 45px; animation-duration: 11s; animation-delay: 4s; }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 108vh;
+                transform: translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* すりガラス風の詩カード */
+        .poem-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 440px;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            letter-spacing: 4px;
+            font-weight: normal;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 2.1;
+            margin: 10px 0;
+            letter-spacing: 2px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            color: #ffd166;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 泡背景アニメーション -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- 詩カード -->
+    <div class="poem-card">
+        <h1>『夏の詩』</h1>
+        <p>蝉時雨が午後の影を伸ばし</p>
+        <p>そよ風が<span class="highlight">青葉</span>を揺らす</p>
+        <p>サイダーの泡が密やかに弾け</p>
+        <p>この季節のすべての熱気を</p>
+        <p>蒼い波の彼方へ閉じ込めた</p>
+    </div>
+
+</body>
+</html>
